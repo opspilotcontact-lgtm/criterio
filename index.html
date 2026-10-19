@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Criterio · dirigir a la IA</title>
-<meta name="description" content="Lo que hemos hecho dirigiendo a la IA con criterio, lo que se puede hacer y cómo empezar.">
+<meta name="description" content="Lo que se ha hecho hablando con una IA, hasta dónde puede llegar y cómo empezar a dirigirla con tu propio ojo.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@300..800&family=JetBrains+Mono:wght@400;600&family=Archivo:wdth,wght@62..125,100..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Fraunces:opsz,wght@9..144,300..900&family=Big+Shoulders+Display:wght@500..900&family=Caveat:wght@500;700&family=Bricolage+Grotesque:opsz,wght@12..96,300..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@300..800&family=JetBrains+Mono:wght@400;600&family=Archivo:wdth,wght@62..125,100..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Big+Shoulders+Display:wght@500..900&family=Caveat:wght@500;700&family=Cormorant+Garamond:ital,wght@1,500&display=swap" rel="stylesheet">
 <style>
-/* Composición: cubo blanco de galería. Cada obra se cuelga a pared completa; el azul Klein marca lo que se puede tocar. */
+/* Composición: cubo blanco de galería. Las obras se cuelgan a pared completa; el azul Klein marca lo que se toca. */
 :root{
   --pared:#FFFFFF; --pared2:#F3F3F1; --tinta:#111111; --tinta2:#5C5C58; --linea:#E2E2DE;
-  --klein:#002FA7; --klein-suave:#E6ECFA; --rojo:#E5322D;
+  --klein:#002FA7; --rojo:#E5322D;
   --display:"Instrument Serif","Times New Roman",serif;
   --texto:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
@@ -28,7 +28,6 @@ h1,h2,h3{text-wrap:balance}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--klein);outline-offset:3px}
 .env{max-width:1320px;margin:0 auto;padding-inline:clamp(16px,4vw,48px)}
-.mono{font-family:var(--mono)}
 .rotulo{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta2)}
 .franja{background:var(--tinta);color:#fff;font-size:13px;padding:8px 16px;text-align:center}
 section{padding-block:clamp(80px,10vw,150px)}
@@ -38,74 +37,143 @@ section{padding-block:clamp(80px,10vw,150px)}
 .cab p{color:var(--tinta2);font-size:18px;max-width:30em}
 @media (max-width:860px){.cab{grid-template-columns:1fr}}
 
-/* ---------- portada ---------- */
-.portada{padding-block:clamp(56px,8vw,110px) 0;overflow:hidden}
-.portada h1{font-family:var(--display);font-weight:400;font-size:clamp(64px,12.5vw,210px);line-height:.86;letter-spacing:-.035em}
-.portada h1 em{color:var(--klein)}
-.portada .bajo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px 64px;margin-top:clamp(32px,4vw,56px);align-items:start}
-.portada .bajo p{font-size:clamp(19px,1.7vw,23px);max-width:28em}
-.indice{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--tinta)}
-.indice a{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--linea);text-decoration:none;font-size:16px}
-.indice a span:last-child{font-family:var(--mono);font-size:12px;color:var(--tinta2)}
-.indice a:hover{color:var(--klein)}
-@media (max-width:760px){.portada .bajo{grid-template-columns:1fr}}
-.muro{margin-top:clamp(56px,7vw,96px);display:flex;gap:14px;width:max-content;animation:desliza 70s linear infinite}
-.muro img{height:clamp(150px,18vw,250px);width:auto;border-radius:3px;box-shadow:0 1px 0 var(--linea)}
-.muro:hover{animation-play-state:paused}
-@keyframes desliza{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.muro{animation:none}}
-
-/* ---------- lo que dijo Juan ---------- */
-.dijo{background:var(--pared2)}
-.frases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-@media (max-width:860px){.frases{grid-template-columns:1fr}}
-.frase{background:var(--pared);border:1px solid var(--linea);border-radius:4px;padding:26px;display:grid;gap:16px;align-content:start}
-.burbuja{font-family:var(--mono);font-size:15px;background:var(--tinta);color:#fff;border-radius:14px 14px 14px 3px;padding:14px 16px;max-width:92%}
-.burbuja small{display:block;color:#9a9a96;font-size:11px;margin-bottom:4px;letter-spacing:.08em;text-transform:uppercase}
-.frase .paso{font-family:var(--display);font-size:clamp(26px,2.4vw,34px);line-height:1.08}
-.frase .paso b{font-weight:400;color:var(--klein);font-style:italic}
-.frase p{color:var(--tinta2);font-size:15.5px}
-.moraleja{margin-top:36px;font-family:var(--display);font-size:clamp(30px,3.4vw,48px);line-height:1.1;max-width:22em}
-.moraleja em{color:var(--klein)}
-
-/* ---------- las cinco palabras ---------- */
-.palabras{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--tinta)}
-@media (max-width:1000px){.palabras{grid-template-columns:1fr 1fr}}
-@media (max-width:560px){.palabras{grid-template-columns:1fr}}
-.palabra{padding:24px 20px 26px 0;border-bottom:1px solid var(--linea);display:grid;gap:10px;align-content:start}
-.palabra h3{font-family:var(--display);font-weight:400;font-size:clamp(40px,4vw,58px);line-height:.9}
-.palabra p{font-size:15.5px}
-.palabra .ej{font-size:14px;color:var(--tinta2)}
-.palabra .ej b{color:var(--tinta);font-weight:600}
+/* ---------- portada: la obra primero ---------- */
+.portada{padding-block:0;position:relative;overflow:hidden;background:var(--tinta);color:#fff}
+.mosaico{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;padding:6px;opacity:.9}
+.mosaico img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:2px}
+@media (max-width:760px){.mosaico{grid-template-columns:repeat(3,1fr)}.mosaico img:nth-child(n+10){display:none}}
+.portada .sobre{position:absolute;inset:0;display:grid;align-content:end;background:linear-gradient(180deg,rgb(17 17 17/0) 20%,rgb(17 17 17/.82) 62%,rgb(17 17 17/.96));padding-bottom:clamp(36px,6vw,80px)}
+.portada h1{font-family:var(--display);font-weight:400;font-size:clamp(56px,10vw,170px);line-height:.88;letter-spacing:-.03em}
+.portada h1 em{color:#8FA8FF}
+.portada .bajada{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:20px 56px;margin-top:28px;align-items:end}
+.portada .bajada p{font-size:clamp(18px,1.6vw,22px);color:#E8E8E3;max-width:30em}
+.portada .bajada p.chico{font-size:16px;color:#B5B5AE}
+@media (max-width:760px){.portada .sobre{position:relative;background:var(--tinta);padding-top:36px}.portada .bajada{grid-template-columns:1fr}}
 
 /* ---------- galería ---------- */
 .obra{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:start;padding-block:clamp(40px,5vw,72px);border-top:1px solid var(--linea)}
 .obra:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(0,1.5fr)}
-.obra:nth-child(even) .lienzo{order:2}
-@media (max-width:900px){.obra,.obra:nth-child(even){grid-template-columns:1fr}.obra:nth-child(even) .lienzo{order:0}}
+.obra:nth-child(even) > :first-child{order:2}
+@media (max-width:900px){.obra,.obra:nth-child(even){grid-template-columns:1fr}.obra:nth-child(even) > :first-child{order:0}}
 .lienzo{position:relative;display:block;border-radius:4px;overflow:hidden;background:var(--pared2);box-shadow:0 30px 60px -40px rgb(0 0 0/.45)}
 .lienzo img{width:100%;height:auto;transition:transform .8s cubic-bezier(.2,.7,.1,1)}
 .lienzo:hover img{transform:scale(1.025)}
-.lienzo .ver{position:absolute;right:12px;bottom:12px;background:var(--pared);font-family:var(--mono);font-size:12px;padding:6px 10px;border-radius:999px;text-decoration:none}
+.lienzo .ver{position:absolute;right:12px;bottom:12px;background:var(--pared);font-family:var(--mono);font-size:12px;padding:6px 10px;border-radius:999px}
 .ficha{display:grid;gap:16px;align-content:start}
 .ficha .num{font-family:var(--mono);font-size:12px;color:var(--tinta2)}
 .ficha h3{font-family:var(--display);font-weight:400;font-size:clamp(38px,4vw,60px);line-height:.95}
 .ficha .sector{color:var(--tinta2);font-size:15px;margin-top:-6px}
-.ficha dl{margin:0;display:grid;gap:12px}
-.ficha dt{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--klein)}
-.ficha dd{margin:2px 0 0;font-size:16px}
+.ficha .transmite{font-family:var(--display);font-style:italic;font-size:clamp(24px,2.2vw,30px);line-height:1.15;color:var(--klein)}
+.ficha .idea{font-size:16.5px}
 .muestras{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.muestras i{width:30px;height:30px;border-radius:50%;border:1px solid rgb(0 0 0/.12);display:inline-block}
+.muestras i{width:28px;height:28px;border-radius:50%;border:1px solid rgb(0 0 0/.12);display:inline-block}
 .muestras span{font-family:var(--mono);font-size:12px;color:var(--tinta2);margin-left:6px}
 .movil{width:min(300px,100%);aspect-ratio:9/16;border-radius:34px;border:10px solid var(--tinta);overflow:hidden;background:var(--tinta);margin-inline:auto}
 .movil video{width:100%;height:100%;object-fit:cover}
 .doble{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:16px;align-items:center}
 @media (max-width:600px){.doble{grid-template-columns:1fr}}
 
-/* ---------- lo que aún no hemos hecho ---------- */
+/* ---------- antes y después ---------- */
+.ojo{background:var(--pared2)}
+.pares{display:grid;gap:clamp(48px,6vw,88px)}
+.par{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
+@media (max-width:900px){.par{grid-template-columns:1fr}}
+.comparar{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:16/10;background:#ddd;box-shadow:0 30px 60px -40px rgb(0 0 0/.45);touch-action:pan-y}
+.comparar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.comparar .antes{clip-path:inset(0 calc(100% - var(--x,50%)) 0 0)}
+.comparar .corte{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;background:#fff;box-shadow:0 0 0 1px rgb(0 0 0/.2);pointer-events:none}
+.comparar .corte::after{content:"⟷";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;background:#fff;color:var(--tinta);display:grid;place-items:center;font-size:18px;box-shadow:0 4px 14px rgb(0 0 0/.25)}
+.comparar .et{position:absolute;top:12px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:rgb(17 17 17/.75);color:#fff;padding:5px 9px;border-radius:999px;pointer-events:none}
+.comparar .et.a{left:12px}.comparar .et.b{right:12px}
+.comparar input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.par .texto{display:grid;gap:14px}
+.par h3{font-family:var(--display);font-weight:400;font-size:clamp(34px,3.4vw,48px);line-height:1}
+.par .linea{display:grid;grid-template-columns:86px minmax(0,1fr);gap:10px;font-size:16px;padding-top:12px;border-top:1px solid var(--linea)}
+.par .linea b{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta2);font-weight:400;padding-top:3px}
+.par .linea.mirada b{color:var(--klein)}
+.par .linea.mirada span{font-family:var(--display);font-style:italic;font-size:22px;line-height:1.2}
+
+/* ---------- atlas de estilos ---------- */
+.atlas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+@media (max-width:1000px){.atlas{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:720px){.atlas{grid-template-columns:1fr 1fr}}
+.tile{border:0;padding:0;background:none;text-align:left;cursor:pointer;display:grid;gap:10px;font:inherit;color:inherit}
+.lam{display:block;aspect-ratio:3/4;border-radius:3px;overflow:hidden;position:relative;transition:transform .35s cubic-bezier(.2,.7,.1,1),box-shadow .35s}
+.tile:hover .lam{transform:translateY(-4px);box-shadow:0 18px 30px -18px rgb(0 0 0/.5)}
+.tile[aria-pressed="true"] .lam{outline:3px solid var(--klein);outline-offset:3px}
+.tile b{font-size:16px}
+.tile small{display:block;color:var(--tinta2);font-size:13.5px;line-height:1.4}
+.lam > *{position:absolute;display:block}
+.l-suizo{background:#F2F2EE}
+.l-suizo .t{left:8%;top:8%;font:900 clamp(26px,3.4vw,46px)/.86 "Archivo",sans-serif;letter-spacing:-.04em;color:#111}
+.l-suizo .r{left:8%;right:8%;top:58%;height:5%;background:#E5322D}
+.l-suizo .g{inset:0;background:linear-gradient(90deg,rgb(0 0 0/.07) 1px,transparent 1px) 0 0/16.66% 100%}
+.l-suizo .p{left:8%;bottom:7%;font:600 9px/1.3 "JetBrains Mono",monospace;color:#111;letter-spacing:.06em}
+.l-bauhaus{background:#EFE6D2}
+.l-bauhaus .c{width:52%;aspect-ratio:1;border-radius:50%;background:#D7301F;left:10%;top:12%}
+.l-bauhaus .s{width:38%;aspect-ratio:1;background:#1F3E9C;right:10%;top:38%}
+.l-bauhaus .tr{width:0;height:0;border-left:50px solid transparent;border-right:50px solid transparent;border-bottom:86px solid #F2B705;left:22%;bottom:12%}
+.l-bauhaus .t{right:8%;bottom:6%;font:700 15px "Hanken Grotesk",sans-serif;color:#111}
+.l-constr{background:#EDE4D3}
+.l-constr .banda{left:-20%;right:-20%;top:42%;height:22%;background:#C8102E;transform:rotate(-28deg)}
+.l-constr .t{left:6%;top:46%;transform:rotate(-28deg);font:900 clamp(20px,2.4vw,32px)/1 "Big Shoulders Display",sans-serif;color:#EDE4D3;letter-spacing:.04em;white-space:nowrap}
+.l-constr .c{width:28%;aspect-ratio:1;border-radius:50%;background:#111;right:10%;top:10%}
+.l-riso{background:#F7F3E8;background-image:radial-gradient(rgb(240 69 58/.35) 1.1px,transparent 1.4px);background-size:7px 7px}
+.l-riso .t1,.l-riso .t2{left:9%;top:24%;font:900 clamp(34px,4.4vw,60px)/.9 "Archivo",sans-serif;font-stretch:62%;mix-blend-mode:multiply}
+.l-riso .t1{color:#2C4BD8}.l-riso .t2{color:#FF5BA7;transform:translate(5px,4px)}
+.l-riso .p{left:9%;bottom:8%;font:700 22px "Caveat",cursive;color:#2C4BD8;transform:rotate(-4deg)}
+.l-brutal{background:#E8E8E8;font-family:"Times New Roman",serif}
+.l-brutal .t{left:6%;top:6%;right:6%;font-size:clamp(20px,2.2vw,28px);line-height:1.05;color:#000}
+.l-brutal .a{left:6%;top:50%;color:#0000EE;text-decoration:underline;font-size:15px}
+.l-brutal .b{left:6%;right:6%;bottom:8%;height:26%;border:3px solid #000;background:#fff}
+.l-brutal .b::after{content:"[ CLICK ]";position:absolute;inset:0;display:grid;place-items:center;font:700 14px "JetBrains Mono",monospace}
+.l-memphis{background:#FFD6E0}
+.l-memphis .z{left:-5%;right:-5%;top:20%;height:16%;background:linear-gradient(135deg,#111 25%,transparent 25%) -10px 0/20px 20px,linear-gradient(225deg,#111 25%,transparent 25%) -10px 0/20px 20px}
+.l-memphis .c{width:30%;aspect-ratio:1;border-radius:50%;background:#2BC0B4;right:12%;top:48%}
+.l-memphis .s{width:26%;aspect-ratio:1;background:#FFC93C;left:12%;top:56%;transform:rotate(18deg)}
+.l-memphis .d{inset:0;background:radial-gradient(#111 1.5px,transparent 2px) 0 0/22px 22px;opacity:.5;-webkit-mask:linear-gradient(transparent 70%,#000 70%);mask:linear-gradient(transparent 70%,#000 70%)}
+.l-nouveau{background:#1E3B2F}
+.l-nouveau .arco{left:12%;right:12%;top:10%;bottom:16%;border:2px solid #C9A646;border-radius:999px 999px 6px 6px}
+.l-nouveau .arco2{left:18%;right:18%;top:15%;bottom:21%;border:1px solid rgb(201 166 70/.6);border-radius:999px 999px 4px 4px}
+.l-nouveau .t{left:0;right:0;top:44%;text-align:center;font:500 italic clamp(26px,3vw,40px) "Cormorant Garamond",serif;color:#E9D9A6}
+.l-nouveau .p{left:0;right:0;bottom:6%;text-align:center;font:600 9px "JetBrains Mono",monospace;letter-spacing:.3em;color:#C9A646}
+.l-ma{background:#F5F1E8}
+.l-ma .sol{width:14%;aspect-ratio:1;border-radius:50%;background:#C8102E;right:22%;top:24%}
+.l-ma .t{left:14%;top:22%;writing-mode:vertical-rl;font:500 13px "Hanken Grotesk",sans-serif;letter-spacing:.4em;color:#333}
+.l-ma .l{left:14%;right:14%;bottom:18%;height:1px;background:#999}
+.l-op{background:repeating-radial-gradient(circle at 50% 50%,#111 0 6px,#F4F4F0 6px 12px)}
+.l-op .c{width:56%;aspect-ratio:1;border-radius:50%;left:22%;top:26%;background:repeating-radial-gradient(circle at 40% 40%,#F4F4F0 0 6px,#111 6px 12px)}
+.l-collage{background:#E9E4DA}
+.l-collage .a{left:8%;top:10%;width:58%;height:26%;background:#1B1B1B;transform:rotate(-6deg)}
+.l-collage .a::after{content:"ESTO";position:absolute;inset:0;display:grid;place-items:center;font:900 30px "Archivo",sans-serif;color:#E9E4DA}
+.l-collage .b{right:6%;top:36%;width:52%;height:22%;background:#F2B705;transform:rotate(5deg)}
+.l-collage .b::after{content:"no es";position:absolute;inset:0;display:grid;place-items:center;font:italic 600 26px "Bodoni Moda",serif;color:#111}
+.l-collage .c{left:12%;bottom:12%;width:64%;height:24%;background:#fff;transform:rotate(-2deg);box-shadow:0 2px 6px rgb(0 0 0/.15)}
+.l-collage .c::after{content:"una web";position:absolute;inset:0;display:grid;place-items:center;font:700 28px "Caveat",cursive;color:#C8102E}
+.l-lujo{background:#0D0D0D}
+.l-lujo .t{left:0;right:0;top:36%;text-align:center;font:400 clamp(40px,5vw,70px)/1 "Bodoni Moda",serif;color:#F2EFE8;letter-spacing:-.02em}
+.l-lujo .l{left:30%;right:30%;top:62%;height:1px;background:#B8975A}
+.l-lujo .p{left:0;right:0;bottom:8%;text-align:center;font:600 9px "JetBrains Mono",monospace;letter-spacing:.4em;color:#B8975A}
+.l-indus{background:#F2C200}
+.l-indus .r{left:0;right:0;bottom:0;height:16%;background:repeating-linear-gradient(-45deg,#111 0 14px,#F2C200 14px 28px)}
+.l-indus .t{left:8%;top:8%;font:900 clamp(30px,3.6vw,50px)/.9 "Big Shoulders Display",sans-serif;color:#111;text-transform:uppercase}
+.l-indus .f{right:8%;top:42%;font:900 70px/1 "Archivo",sans-serif;color:#111}
+.l-indus .p{left:8%;top:46%;font:600 10px/1.5 "JetBrains Mono",monospace;color:#111}
+.l-botan{background:#E7EBDD}
+.l-botan .h1,.l-botan .h2,.l-botan .h3{width:34%;height:52%;border-radius:0 100% 0 100%;background:#5B7F4A}
+.l-botan .h1{left:18%;top:16%;transform:rotate(-12deg)}
+.l-botan .h2{left:42%;top:22%;transform:rotate(28deg);background:#87A96B}
+.l-botan .h3{left:30%;top:36%;transform:rotate(-40deg);background:#3E5A33;width:24%;height:36%}
+.l-botan .t{left:8%;bottom:7%;font:italic 500 22px "Cormorant Garamond",serif;color:#2F3B26}
+.l-digital{background:#05060A}
+.l-digital .g{inset:0;background:linear-gradient(rgb(124 242 201/.18) 1px,transparent 1px) 0 0/100% 14px;-webkit-mask:linear-gradient(transparent,#000 60%);mask:linear-gradient(transparent,#000 60%)}
+.l-digital .t{left:8%;top:12%;font:600 12px/1.6 "JetBrains Mono",monospace;color:#7CF2C9}
+.l-digital .o{width:44%;aspect-ratio:1;left:28%;top:34%;border:1px solid #7CF2C9;border-radius:50%;box-shadow:0 0 24px rgb(124 242 201/.35),inset 0 0 24px rgb(124 242 201/.25)}
+
+/* ---------- más allá de las webs ---------- */
 .posible{background:var(--tinta);color:#fff}
 .posible .cab p{color:#a9a9a4}
-.posible .cab h2 em{color:#7A9BFF}
+.posible .cab h2 em{color:#8FA8FF}
 .demos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 @media (max-width:980px){.demos{grid-template-columns:1fr 1fr}}
 @media (max-width:620px){.demos{grid-template-columns:1fr}}
@@ -115,53 +183,37 @@ section{padding-block:clamp(80px,10vw,150px)}
 .demo .pie{padding:16px 18px 20px;display:grid;gap:6px}
 .demo h3{font-family:var(--display);font-weight:400;font-size:28px;line-height:1}
 .demo p{color:#b9b9b4;font-size:14.5px}
-.demo .pista{font-family:var(--mono);font-size:11px;color:#7A9BFF;letter-spacing:.06em}
+.demo .pista{font-family:var(--mono);font-size:11px;color:#8FA8FF;letter-spacing:.06em}
 #respira{font-family:"Archivo",sans-serif;font-size:clamp(44px,6vw,76px);line-height:1;font-variation-settings:"wdth" 100,"wght" 400;transition:font-variation-settings .15s linear;color:var(--klein)}
 .mas{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
 .mas span{border:1px solid #3a3a37;border-radius:999px;padding:7px 13px;font-size:14px;color:#dcdcd6}
 
-/* ---------- constructor ---------- */
-.taller{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
-@media (max-width:1000px){.taller{grid-template-columns:1fr}}
-.opciones{display:grid;gap:26px}
-.grupo{display:grid;gap:10px}
-.grupo > label,.grupo > .t{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta2)}
-.grupo input[type=text],.grupo textarea{width:100%;border:1px solid var(--linea);border-radius:4px;padding:12px 14px;font:inherit;background:var(--pared)}
-.chips{display:flex;flex-wrap:wrap;gap:7px}
-.chips button{border:1px solid var(--linea);background:var(--pared);border-radius:999px;padding:7px 13px;font:inherit;font-size:14.5px;cursor:pointer;transition:background .15s,border-color .15s}
-.chips button:hover{border-color:var(--tinta)}
-.chips button[aria-pressed="true"]{background:var(--klein);border-color:var(--klein);color:#fff}
-.chips.no button[aria-pressed="true"]{background:var(--rojo);border-color:var(--rojo)}
-.letras{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
-@media (max-width:560px){.letras{grid-template-columns:1fr 1fr}}
-.letras button,.paletas button,.materias button{border:1px solid var(--linea);background:var(--pared);border-radius:4px;padding:12px 10px;cursor:pointer;text-align:left;display:grid;gap:6px;font:inherit}
-.letras button[aria-pressed="true"],.paletas button[aria-pressed="true"],.materias button[aria-pressed="true"]{border-color:var(--klein);box-shadow:inset 0 0 0 2px var(--klein)}
-.letras .aa{font-size:30px;line-height:1}
-.letras small,.paletas small,.materias small{font-size:12px;color:var(--tinta2)}
-.paletas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-@media (max-width:560px){.paletas{grid-template-columns:1fr 1fr}}
-.paletas .tiras{display:flex;height:28px;border-radius:3px;overflow:hidden}
-.paletas .tiras i{flex:1}
-.materias{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-@media (max-width:560px){.materias{grid-template-columns:1fr 1fr}}
-.materias .m{height:44px;border-radius:3px;border:1px solid var(--linea)}
-.resultado{position:sticky;top:16px;display:grid;gap:14px}
-@media (max-width:1000px){.resultado{position:static}}
-.lamina{aspect-ratio:4/5;border-radius:4px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(20px,3vw,36px);transition:background .3s,color .3s}
-.lamina .tex{position:absolute;inset:0;pointer-events:none}
-.lamina .arriba{position:relative;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
-.lamina .titular{position:relative;font-size:clamp(44px,6vw,86px);line-height:.92;overflow-wrap:anywhere}
-.lamina .forma{position:absolute;pointer-events:none;transition:all .4s}
-.lamina .abajo{position:relative;display:flex;justify-content:space-between;align-items:end;gap:12px;font-size:14px}
-.lamina .sello{width:46px;height:46px;border-radius:50%}
-.lamina.anima .titular{animation:entra .9s cubic-bezier(.2,.7,.1,1)}
-@keyframes entra{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.lamina.anima .titular{animation:none}}
-.prompt{background:var(--tinta);color:#EDEDE8;border-radius:4px;padding:18px;font-family:var(--mono);font-size:13px;line-height:1.6;white-space:pre-wrap;max-height:420px;overflow:auto}
-.acciones{display:flex;gap:10px;flex-wrap:wrap}
+/* ---------- contar la marca ---------- */
+.dos-briefs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:16px;margin-bottom:clamp(48px,6vw,80px)}
+@media (max-width:860px){.dos-briefs{grid-template-columns:1fr}}
+.brief{border-radius:6px;padding:24px 26px;display:grid;gap:12px;align-content:start}
+.brief.pobre{background:var(--pared2)}
+.brief.rico{background:var(--klein);color:#fff}
+.brief .rotulo{color:inherit;opacity:.7}
+.brief p{font-size:17px;line-height:1.6}
+.brief.pobre p.dice{font-family:var(--mono);font-size:15px}
+.brief .resultado{font-size:14px;opacity:.85;border-top:1px solid currentColor;padding-top:10px}
+.preguntas{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+@media (max-width:1000px){.preguntas{grid-template-columns:1fr}}
+.campos{display:grid;gap:20px}
+.campo{display:grid;gap:8px}
+.campo label{font-family:var(--display);font-size:clamp(24px,2.2vw,30px);line-height:1.1}
+.campo small{color:var(--tinta2);font-size:14px;margin-top:-4px}
+.campo textarea{width:100%;border:1px solid var(--linea);border-radius:4px;padding:12px 14px;font:inherit;font-size:16px;background:var(--pared);resize:vertical;min-height:64px}
+.salida-brief{position:sticky;top:16px;display:grid;gap:12px}
+@media (max-width:1000px){.salida-brief{position:static}}
+.mensaje{background:var(--tinta);color:#EDEDE8;border-radius:6px;padding:20px;font-size:15.5px;line-height:1.65;white-space:pre-wrap;max-height:560px;overflow:auto}
+.acciones{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .boton{border:0;border-radius:999px;padding:13px 20px;font:inherit;font-weight:700;cursor:pointer;background:var(--klein);color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
-.boton.claro{background:var(--pared);color:var(--tinta);border:1px solid var(--tinta)}
 .aviso{font-size:13px;color:var(--tinta2)}
+.pedir{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(48px,6vw,80px)}
+.pedir span{font-family:var(--display);font-size:clamp(20px,1.9vw,26px);line-height:1.2;padding:10px 16px;border:1px solid var(--linea);border-radius:999px}
+.pedir span::before{content:"«";color:var(--klein)}.pedir span::after{content:"»";color:var(--klein)}
 
 /* ---------- dinero ---------- */
 .dinero{background:var(--pared2)}
@@ -175,184 +227,117 @@ section{padding-block:clamp(80px,10vw,150px)}
 .salida.tuya{background:var(--klein);color:#fff}
 .salida.tuya p,.salida.tuya .ej{color:#dfe6ff}
 
-/* ---------- cómo ---------- */
-.chat{max-width:760px;display:grid;gap:14px}
-.msg{padding:14px 18px;border-radius:16px;font-size:16px;max-width:88%}
-.msg.ella{background:var(--klein);color:#fff;justify-self:end;border-bottom-right-radius:4px}
-.msg.ia{background:var(--pared2);border-bottom-left-radius:4px}
-.msg small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-bottom:4px}
-.reglas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:56px;counter-reset:r}
-@media (max-width:900px){.reglas{grid-template-columns:1fr 1fr}}
-@media (max-width:520px){.reglas{grid-template-columns:1fr}}
-.regla{counter-increment:r;border-top:2px solid var(--tinta);padding-top:14px;display:grid;gap:8px}
-.regla::before{content:counter(r);font-family:var(--display);font-size:44px;line-height:1;color:var(--klein)}
-.regla h3{font-size:18px;font-weight:700}
-.regla p{font-size:15px;color:var(--tinta2)}
-.glosario{display:flex;flex-wrap:wrap;gap:8px;margin-top:40px}
-.glosario span{font-family:var(--display);font-size:24px;padding:2px 12px;border:1px solid var(--linea);border-radius:999px}
-
-.final{background:var(--klein);color:#fff;text-align:left}
+.final{background:var(--klein);color:#fff}
 .final h2{font-family:var(--display);font-weight:400;font-size:clamp(52px,8vw,130px);line-height:.9;letter-spacing:-.02em}
 .final p{font-size:20px;max-width:32em;margin-top:24px;color:#dfe6ff}
 .final .boton{background:#fff;color:var(--klein);margin-top:32px}
 footer{padding:28px 0 40px;font-size:13px;color:var(--tinta2)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
-<div class="franja">Documento interno de OpsPilot. Las webs que aparecen son propuestas y trabajos reales para negocios de Córdoba.</div>
+<div class="franja">Documento interno de OpsPilot. Las webs que aparecen son trabajos y propuestas reales para negocios de Córdoba.</div>
 
-<header class="portada">
-  <div class="env">
-    <p class="rotulo">Para ti · octubre de 2026</p>
-    <h1>La IA hace.<br><em>El criterio</em> es tuyo.</h1>
-    <div class="bajo">
-      <p>Todo lo de abajo ha salido de frases cortas de Juan, que no ha estudiado diseño. Tú sí. Si con su ojo sale esto, con el tuyo puede salir algo de otro nivel.</p>
-      <ol class="indice">
-        <li><a href="#dijo"><span>Lo que bastó decir</span><span>01</span></a></li>
-        <li><a href="#galeria"><span>Diez obras y en qué se basan</span><span>02</span></a></li>
-        <li><a href="#posible"><span>Lo que aún no hemos hecho</span><span>03</span></a></li>
-        <li><a href="#taller"><span>Tu taller de encargos</span><span>04</span></a></li>
-        <li><a href="#dinero"><span>Dónde está el trabajo</span><span>05</span></a></li>
-        <li><a href="#como"><span>Cómo se hace, de verdad</span><span>06</span></a></li>
-      </ol>
+<header class="portada" aria-labelledby="t-portada">
+  <div class="mosaico" id="mosaico" aria-hidden="true"></div>
+  <div class="sobre">
+    <div class="env">
+      <p class="rotulo" style="color:#B5B5AE">Para ti · octubre de 2026</p>
+      <h1 id="t-portada">Todo esto se hizo <em>hablando.</em></h1>
+      <div class="bajada">
+        <p>Cada web de esta página la construyó una IA a partir de una conversación sobre la marca: qué es, qué tiene que transmitir y qué no quiere parecer. Nadie dibujó a mano ni programó línea a línea.</p>
+        <p class="chico">Quien dirigió estas conversaciones no ha estudiado diseño. Tú sí. Esto es para que veas hasta dónde puedes llevarlo con tu ojo.</p>
+      </div>
     </div>
   </div>
-  <div class="muro" aria-hidden="true" id="muro"></div>
 </header>
 
 <main>
-<section id="dijo" class="dijo" aria-labelledby="t-dijo">
+<section id="galeria" aria-labelledby="t-galeria">
   <div class="env">
-    <div class="cab"><h2 id="t-dijo">Lo que <em>bastó</em> decir.</h2><p>Frases literales de Juan a la IA y lo que cambiaron. Ni una es técnica. Son opiniones con un porqué.</p></div>
-    <div class="frases">
-      <div class="frase"><div class="burbuja"><small>Juan, sobre su portfolio</small>«hazlo más visual, rompe la cuarta pared… transiciones… sorpréndeme»</div>
-        <p class="paso">El portfolio dejó de ser una lista y pasó a ser <b>una obra que se recorre</b>, de los cimientos al tejado.</p>
-        <p>Se baja a un sótano con linterna, se sube por plantas y se acaba en la azotea. <a href="https://opspilotcontact-lgtm.github.io/portfolio/" target="_blank" rel="noopener">Verlo</a></p></div>
-      <div class="frase"><div class="burbuja"><small>Juan, sobre la web de OpsPilot</small>«la mirilla amarilla dentro del círculo me sobra totalmente»</div>
-        <p class="paso">El aro del logo se quedó <b>vacío por dentro</b>, y desde entonces es una regla de marca.</p>
-        <p>Una frase de gusto se convirtió en una norma que ya no hace falta repetir.</p></div>
-      <div class="frase"><div class="burbuja"><small>Juan, sobre Luque Joyeros</small>«son fuentes típicas de IA»</div>
-        <p class="paso">Fuera Marcellus y Garamond. La letra pasó a salir <b>del rótulo de su propio logo</b>.</p>
-        <p>Saira extendida y fina: la de la placa de su puerta, no la de cualquier joyería.</p></div>
-      <div class="frase"><div class="burbuja"><small>Juan, sobre Berral Joyeros</small>«tiene tics de IA»</div>
-        <p class="paso">Dos parejas de letras descartadas hasta dar con Jost a 500, <b>el peso de sus letras corpóreas</b>.</p>
-        <p>El fondo pasó a ser el granito de su fachada, con su grano.</p></div>
-    </div>
-    <p class="moraleja">La IA propone mil cosas correctas. Lo que no sabe es <em>cuál es la buena</em>. Eso lo pone quien mira.</p>
-  </div>
-</section>
-
-<section aria-labelledby="t-palabras">
-  <div class="env">
-    <div class="cab"><h2 id="t-palabras">Cinco palabras <em>y un orden.</em></h2><p>Antes de dibujar nada, a cada cliente se le escriben estas cinco decisiones, y cada una sale de algo real suyo. Tú las conoces con otros nombres.</p></div>
-    <div class="palabras">
-      <div class="palabra"><h3>Firma</h3><p>Un objeto del cliente a tamaño monumental.</p><p class="ej"><b>Córdoba Soluciona:</b> el arco de la Mezquita como ventana.</p></div>
-      <div class="palabra"><h3>Gesto</h3><p>La unidad de trabajo del negocio, convertida en estructura.</p><p class="ej"><b>World Fitness:</b> el disco. Las zonas del gimnasio van en discos.</p></div>
-      <div class="palabra"><h3>Voz</h3><p>Sus palabras, no las de una agencia.</p><p class="ej"><b>Minimundo:</b> «Elegido de uno en uno», como habla Marta.</p></div>
-      <div class="palabra"><h3>Color</h3><p>Medido en su fachada, su logo o su local.</p><p class="ej"><b>Minimundo:</b> el rosa de su fachada y el azul de su pared.</p></div>
-      <div class="palabra"><h3>Movimiento</h3><p>Su oficio, animado una sola vez.</p><p class="ej"><b>Dígito:</b> el rótulo que se enciende.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="galeria" aria-labelledby="t-galeria" style="padding-top:0">
-  <div class="env">
-    <div class="cab"><h2 id="t-galeria">Diez obras <em>colgadas.</em></h2><p>Cada una con su porqué. Toca la imagen para abrir la web de verdad.</p></div>
+    <div class="cab"><h2 id="t-galeria">Diez marcas, <em>diez mundos.</em></h2><p>Para cada una, lo que tenía que transmitir y la idea visual que lo consigue. Toca la imagen para abrir la web de verdad.</p></div>
     <div id="obras"></div>
+  </div>
+</section>
+
+<section class="ojo" aria-labelledby="t-ojo">
+  <div class="env">
+    <div class="cab"><h2 id="t-ojo">La primera versión <em>y la buena.</em></h2><p>La IA acierta enseguida con lo correcto. Lo inconfundible sale de alguien que mira y dice qué falta. Arrastra para ver el cambio.</p></div>
+    <div class="pares" id="pares"></div>
+  </div>
+</section>
+
+<section aria-labelledby="t-atlas">
+  <div class="env">
+    <div class="cab"><h2 id="t-atlas">Un atlas, <em>no un menú.</em></h2><p>Catorce direcciones que se pueden pedir tal cual, mezclar o romper. Ninguna aparece en nuestras webs. Si alguna te dice algo, tócala y se apunta en tu mensaje de abajo.</p></div>
+    <div class="atlas" id="atlas"></div>
   </div>
 </section>
 
 <section id="posible" class="posible" aria-labelledby="t-posible">
   <div class="env">
-    <div class="cab"><h2 id="t-posible">Lo que aún <em>no hemos hecho.</em></h2><p>Y se puede. Estas piezas están vivas: toca, mueve el ratón, haz clic. Todo es código que la IA escribe si se le pide bien.</p></div>
+    <div class="cab"><h2 id="t-posible">Más allá <em>de las webs.</em></h2><p>Estas piezas están vivas: mueve el ratón, haz clic. La IA escribe el código si se le describe bien lo que se quiere ver.</p></div>
     <div class="demos">
-      <div class="demo"><div class="zona" id="z-respira"><span id="respira">criterio</span></div><div class="pie"><span class="pista">MUEVE EL CURSOR</span><h3>Letra que respira</h3><p>Una tipografía variable cambia de ancho y de peso con la mano. Sirve para logotipos vivos.</p></div></div>
-      <div class="demo"><div class="zona"><canvas id="c-riso" aria-label="Trama de imprenta en dos tintas"></canvas></div><div class="pie"><span class="pista">HAZ CLIC PARA OTRA</span><h3>Imprenta en dos tintas</h3><p>Trama de puntos en azul y rojo, desplazados como en una risografía. El fanzine, en una web.</p></div></div>
-      <div class="demo"><div class="zona"><canvas id="c-flujo" aria-label="Campo de líneas generativo"></canvas></div><div class="pie"><span class="pista">HAZ CLIC PARA OTRA</span><h3>Dibujo generativo</h3><p>Miles de trazos siguen un campo invisible. Cada visita, una lámina distinta y única.</p></div></div>
-      <div class="demo"><div class="zona"><svg id="s-recortes" viewBox="0 0 400 300" width="100%" height="100%" aria-label="Recortes de papel"></svg></div><div class="pie"><span class="pista">HAZ CLIC PARA RECORTAR</span><h3>Papel recortado</h3><p>Formas planas a tijera, como los gouaches recortados de Matisse. Para una marca cálida, sin fotos.</p></div></div>
-      <div class="demo"><div class="zona"><svg viewBox="0 0 400 300" width="100%" height="100%" aria-label="Trazo que se dibuja"><path id="trazo" d="M40 210 C 70 120, 110 90, 130 150 S 170 230, 200 160 S 240 60, 270 130 S 320 230, 360 120" fill="none" stroke="#002FA7" stroke-width="5" stroke-linecap="round"/></svg></div><div class="pie"><span class="pista">PASA EL RATÓN</span><h3>Un trazo que se escribe</h3><p>Una firma, una línea o un recorrido que se dibuja al llegar o al hacer scroll. Como la firma de Rodríguez.</p></div></div>
-      <div class="demo"><div class="zona" style="background:#234A78"><div class="movil" style="width:42%;border-width:6px;border-radius:18px"><video src="media/minimundo.mp4" muted loop playsinline autoplay preload="metadata" aria-label="Reel de Minimundo"></video></div></div><div class="pie"><span class="pista">VÍDEO HECHO CON CÓDIGO</span><h3>Reels sin editor</h3><p>El reel de Minimundo es una página animada grabada fotograma a fotograma: 22 segundos, 30 por segundo, 660 fotos.</p></div></div>
+      <div class="demo"><div class="zona" id="z-respira"><span id="respira">criterio</span></div><div class="pie"><span class="pista">MUEVE EL CURSOR</span><h3>Letra que respira</h3><p>Una tipografía variable que cambia de ancho y de peso con la mano. Para logotipos vivos.</p></div></div>
+      <div class="demo"><div class="zona"><canvas id="c-riso" aria-label="Trama de imprenta en dos tintas"></canvas></div><div class="pie"><span class="pista">HAZ CLIC PARA OTRA</span><h3>Imprenta en dos tintas</h3><p>Trama de puntos en azul y rojo desplazados, como en una risografía.</p></div></div>
+      <div class="demo"><div class="zona"><canvas id="c-flujo" aria-label="Campo de líneas generativo"></canvas></div><div class="pie"><span class="pista">HAZ CLIC PARA OTRA</span><h3>Dibujo generativo</h3><p>Miles de trazos siguen un campo invisible. Cada visita, una lámina única.</p></div></div>
+      <div class="demo"><div class="zona"><svg id="s-recortes" viewBox="0 0 400 300" width="100%" height="100%" aria-label="Recortes de papel"></svg></div><div class="pie"><span class="pista">HAZ CLIC PARA RECORTAR</span><h3>Papel recortado</h3><p>Formas planas a tijera, en la línea de los gouaches recortados de Matisse.</p></div></div>
+      <div class="demo"><div class="zona"><svg viewBox="0 0 400 300" width="100%" height="100%" aria-label="Trazo que se dibuja"><path id="trazo" d="M40 210 C 70 120, 110 90, 130 150 S 170 230, 200 160 S 240 60, 270 130 S 320 230, 360 120" fill="none" stroke="#002FA7" stroke-width="5" stroke-linecap="round"/></svg></div><div class="pie"><span class="pista">PASA EL RATÓN</span><h3>Un trazo que se escribe</h3><p>Una firma o un recorrido que se dibuja al llegar o al bajar por la página.</p></div></div>
+      <div class="demo"><div class="zona" style="background:#234A78"><div class="movil" style="width:42%;border-width:6px;border-radius:18px"><video src="media/minimundo.mp4" muted loop playsinline preload="metadata" aria-label="Reel de Minimundo"></video></div></div><div class="pie"><span class="pista">VÍDEO HECHO CON CÓDIGO</span><h3>Reels sin editor</h3><p>El reel de Minimundo es una página animada grabada fotograma a fotograma: 22 segundos, 660 fotos.</p></div></div>
     </div>
     <div class="mas" aria-label="Más posibilidades">
-      <span>3D en el navegador</span><span>Ilustración en serie con un solo estilo</span><span>Tipografía propia para una marca</span><span>Etiquetas y packaging</span><span>Carteles que se animan</span><span>Logos que se mueven</span><span>Collage con fotos del cliente</span><span>Catálogos impresos</span><span>Webs que cuentan una historia al bajar</span><span>Carruseles de Instagram con sistema</span><span>Manuales de marca vivos</span><span>Mockups de producto</span>
+      <span>Portadas de discos</span><span>Láminas y ediciones de arte</span><span>Ilustración en serie con un solo estilo</span><span>Tipografía propia</span><span>Etiquetas y packaging</span><span>Lookbooks</span><span>Proyecciones y escenografía</span><span>Instalaciones que reaccionan</span><span>3D en el navegador</span><span>Carteles que se animan</span><span>Manuales de marca vivos</span><span>Merchandising</span><span>Fanzines</span><span>Murales digitales</span>
     </div>
   </div>
 </section>
 
-<section id="taller" aria-labelledby="t-taller">
+<section id="contar" aria-labelledby="t-contar">
   <div class="env">
-    <div class="cab"><h2 id="t-taller">Tu taller <em>de encargos.</em></h2><p>Elige y la lámina cambia en vivo. Abajo se escribe el encargo completo para pegarlo en el chat. Tus reglas se guardan en este navegador para la próxima vez.</p></div>
-    <div class="taller">
-      <div class="opciones" id="opciones">
-        <div class="grupo"><label for="o-cliente">Para quién</label><input type="text" id="o-cliente" value="Bodega familiar de Montilla" placeholder="Negocio, artista o proyecto"></div>
-        <div class="grupo"><span class="t">Qué hay que hacer</span><div class="chips" data-g="entregable" data-uno="1"></div></div>
-        <div class="grupo"><span class="t">Cómo tiene que sentirse</span><div class="chips" data-g="sensacion"></div></div>
-        <div class="grupo"><span class="t">Letra</span><div class="letras" data-g="letra"></div></div>
-        <div class="grupo"><span class="t">Paleta</span><div class="paletas" data-g="paleta"></div></div>
-        <div class="grupo"><span class="t">Materia y fondo</span><div class="materias" data-g="materia"></div></div>
-        <div class="grupo"><span class="t">Imagen</span><div class="chips" data-g="imagen" data-uno="1"></div></div>
-        <div class="grupo"><span class="t">Composición</span><div class="chips" data-g="composicion" data-uno="1"></div></div>
-        <div class="grupo"><span class="t">Movimiento</span><div class="chips" data-g="movimiento" data-uno="1"></div></div>
-        <div class="grupo"><span class="t">Referencias</span><div class="chips" data-g="referencias"></div></div>
-        <div class="grupo"><span class="t">Prohibido</span><div class="chips no" data-g="prohibido"></div></div>
-        <div class="grupo"><label for="o-reglas">Tus reglas, con tus palabras</label><textarea id="o-reglas" rows="3" placeholder="Ej.: nunca centrado; el blanco respira; una sola familia tipográfica; los titulares en minúscula">Una sola familia tipográfica. Mucho aire. Nada centrado salvo el cierre.</textarea></div>
+    <div class="cab"><h2 id="t-contar">Contar la marca <em>es el encargo.</em></h2><p>No hay fórmula. Cuanto mejor cuentas qué es y qué tiene que provocar, más lejos llega. Mira la diferencia.</p></div>
+    <div class="dos-briefs">
+      <div class="brief pobre"><span class="rotulo">Así sale correcto y olvidable</span><p class="dice">Hazme una web bonita y moderna para una bodega.</p><p class="resultado">Sale lo de siempre: una foto de viñedo, una letra elegante y un botón de «comprar».</p></div>
+      <div class="brief rico"><span class="rotulo">Así sale algo suyo</span><p>Es una bodega de Montilla que lleva cuatro generaciones en la misma casa. Las barricas de 1920 están marcadas a fuego y las apuntan con tiza; esa tiza es lo más bonito que tienen. Quiero que quien la vea huela el patio en verano y sienta que está en un sitio que no ha cambiado por moda. No quiero que parezca vino de supermercado ni una bodega de catálogo. Me atraen las etiquetas antiguas de farmacia y la letra de los carteles a mano. Enséñame caminos muy distintos antes de decidir.</p><p class="resultado">Ahora la IA tiene un mundo: la tiza, el hierro de marcar, el patio y la farmacia antigua.</p></div>
+    </div>
+    <div class="preguntas">
+      <div class="campos">
+        <div class="campo"><label for="p1">¿Qué es, contado como lo contaría su dueño?</label><textarea id="p1" rows="2"></textarea></div>
+        <div class="campo"><label for="p2">¿Qué tiene que sentir quien la vea por primera vez?</label><textarea id="p2" rows="2"></textarea></div>
+        <div class="campo"><label for="p3">¿Qué la hace inconfundible?</label><small>Un objeto, un lugar, un gesto, una historia, un color que ya es suyo.</small><textarea id="p3" rows="2"></textarea></div>
+        <div class="campo"><label for="p4">¿Qué material real hay?</label><small>Fotos, logo, objetos, palabras suyas, su local.</small><textarea id="p4" rows="2"></textarea></div>
+        <div class="campo"><label for="p5">¿Qué no quiere parecer nunca?</label><textarea id="p5" rows="2"></textarea></div>
+        <div class="campo"><label for="p6">Lo que imaginas, sin límites</label><small>Aunque parezca imposible. A veces sale.</small><textarea id="p6" rows="3"></textarea></div>
+        <div class="campo"><label for="p7">Referencias que te vienen</label><small>Artistas, épocas, objetos, películas. Las del atlas que toques aparecen aquí.</small><textarea id="p7" rows="2"></textarea></div>
       </div>
-      <div class="resultado">
-        <div class="lamina" id="lamina" aria-live="polite">
-          <div class="tex" id="l-tex"></div>
-          <div class="forma" id="l-forma"></div>
-          <div class="arriba"><span id="l-entregable">identidad</span><span id="l-sens">serena</span></div>
-          <div class="titular" id="l-titular">Bodega familiar de Montilla</div>
-          <div class="abajo"><span id="l-ref">—</span><span class="sello" id="l-sello"></span></div>
-        </div>
-        <div class="prompt" id="prompt" tabindex="0" aria-label="Encargo generado"></div>
-        <div class="acciones"><button class="boton" type="button" id="b-copiar">Copiar el encargo</button><button class="boton claro" type="button" id="b-guardar">Guardar como mi estilo</button><button class="boton claro" type="button" id="b-azar">Sorpréndeme</button></div>
-        <p class="aviso" id="aviso">La lámina es un boceto para elegir dirección. La obra de verdad la hace la IA con este encargo y material real del cliente.</p>
+      <div class="salida-brief">
+        <div class="mensaje" id="mensaje" tabindex="0" aria-label="Tu mensaje para la IA"></div>
+        <div class="acciones"><button class="boton" type="button" id="b-copiar">Copiar el mensaje</button><span class="aviso" id="aviso">Rellena lo que quieras: lo vacío no se envía. Se guarda en este navegador.</span></div>
       </div>
+    </div>
+    <div class="pedir" aria-label="Cosas que se le pueden pedir">
+      <span>enséñame cinco caminos que no se parezcan entre sí</span><span>¿cómo lo resolvería un estudio japonés de los setenta?</span><span>más crudo, como un fanzine fotocopiado</span><span>mezcla la textura de la segunda con la letra de la primera</span><span>dame la versión que yo no me atrevería a pedir</span><span>ahora conviértelo en etiqueta, cartel y reel</span><span>¿qué le sobra?</span>
     </div>
   </div>
 </section>
 
 <section id="dinero" class="dinero" aria-labelledby="t-dinero">
   <div class="env">
-    <div class="cab"><h2 id="t-dinero">Dónde está <em>el trabajo.</em></h2><p>Salidas reales, de las que ya hay clientes alrededor. El diseño con criterio es lo escaso: producirlo ya no lo es.</p></div>
+    <div class="cab"><h2 id="t-dinero">Dónde está <em>el trabajo.</em></h2><p>Salidas reales, con clientes alrededor. Producir ya no es lo difícil. Lo escaso es el criterio.</p></div>
     <div class="salidas">
       <div class="salida"><h3>Marca para negocios de aquí</h3><p>Identidad y web para comercios, talleres y clínicas que hoy tienen una plantilla.</p><p class="ej">Lo que ya vendemos: web a 500 € y 50 €/mes de mantenimiento.</p></div>
-      <div class="salida"><h3>Etiquetas y packaging</h3><p>Aceite, vino, dulces, cosmética local. Córdoba vive de producto y casi todo va mal vestido.</p><p class="ej">Montilla-Moriles, la sierra, los obradores.</p></div>
-      <div class="salida"><h3>Contenido con sistema</h3><p>Plantillas de marca y piezas semanales para redes. Se cobra al mes y se produce rápido.</p><p class="ej">Carruseles, reels hechos en código, carteles.</p></div>
-      <div class="salida"><h3>Artistas y creadores</h3><p>Webs-obra para músicos, fotógrafos, ilustradores o tatuadores, que quieren algo que no parezca de nadie.</p><p class="ej">Aquí la libertad visual es total.</p></div>
-      <div class="salida"><h3>Motion de marca</h3><p>Logos que se mueven, aperturas de vídeo y animaciones de producto.</p><p class="ej">El reel de Minimundo salió de una página web.</p></div>
-      <div class="salida tuya"><h3>Dirección de arte en OpsPilot</h3><p>Cada web que vendemos necesita alguien que diga «esto sí, esto no» con oficio. Hoy lo hace Juan a ojo.</p><p class="ej">Esa silla está libre.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="como" aria-labelledby="t-como">
-  <div class="env">
-    <div class="cab"><h2 id="t-como">Cómo se hace, <em>de verdad.</em></h2><p>Un chat como este. Se escribe como a una persona. La IA pregunta, propone, enseña y corrige. Tú decides.</p></div>
-    <div class="chat" aria-label="Ejemplo de conversación">
-      <div class="msg ella"><small>Tú</small>Quiero la identidad de una bodega familiar de Montilla. Tienen barricas de 1920 marcadas a fuego. Nada de vino de supermercado.</div>
-      <div class="msg ia"><small>IA</small>Antes de dibujar, tres direcciones: A, el marcado a fuego de sus barricas como logotipo; B, el mapa de sus viñas como retícula; C, la tiza con la que apuntan las sacas. ¿Me pasas fotos de las barricas?</div>
-      <div class="msg ella"><small>Tú</small>La A. Pero esa serif huele a etiqueta genérica. Saca la letra del propio hierro de marcar, con su mordida irregular.</div>
-      <div class="msg ia"><small>IA</small>Hecho: la letra sale del hierro, con el borde quemado. Te dejo la etiqueta, la web y un cartel, y te enseño las tres juntas.</div>
-    </div>
-    <div class="reglas">
-      <div class="regla"><h3>Da material real</h3><p>Fotos, el logo, frases del cliente. Con material inventado, sale algo genérico.</p></div>
-      <div class="regla"><h3>Nombra las cosas</h3><p>Retícula, contraste, sangre, tracking. Tu vocabulario es tu ventaja: la IA lo entiende al momento.</p></div>
-      <div class="regla"><h3>Juzga y di por qué</h3><p>«No me gusta» no sirve. «Está centrado y parece una plantilla» lo cambia todo.</p></div>
-      <div class="regla"><h3>Convierte el gusto en reglas</h3><p>Lo que corriges dos veces, escríbelo como norma. A la tercera ya no hace falta decirlo.</p></div>
-    </div>
-    <div class="glosario" aria-label="Palabras que la IA entiende">
-      <span>retícula</span><span>jerarquía</span><span>contraste de peso</span><span>a sangre</span><span>duotono</span><span>grano</span><span>espacio negativo</span><span>tracking</span><span>ritmo vertical</span><span>tensión</span><span>trama</span><span>paleta medida</span>
+      <div class="salida"><h3>Etiquetas y packaging</h3><p>Aceite, vino, dulces, cosmética. Córdoba vive de producto y casi todo va mal vestido.</p><p class="ej">Montilla-Moriles, la sierra, los obradores.</p></div>
+      <div class="salida"><h3>Contenido con identidad</h3><p>Piezas semanales para redes que se reconocen sin ver el logo. Se cobra al mes.</p><p class="ej">Carruseles, reels hechos en código, carteles.</p></div>
+      <div class="salida"><h3>Artistas y creadores</h3><p>Webs-obra para músicos, fotógrafos, ilustradores o tatuadores que no quieren parecerse a nadie.</p><p class="ej">Aquí la libertad visual es total.</p></div>
+      <div class="salida"><h3>Obra propia</h3><p>Series de láminas, ediciones, piezas generativas o motion. Tu firma, a un ritmo que antes no era posible.</p><p class="ej">Lo que imaginas y nunca te dio tiempo a hacer.</p></div>
+      <div class="salida tuya"><h3>Dirección de arte en OpsPilot</h3><p>Cada web que vendemos necesita alguien que diga «esto sí, esto no» con oficio. Hoy se hace a ojo.</p><p class="ej">Esa silla está libre.</p></div>
     </div>
   </div>
 </section>
 
 <section class="final" aria-labelledby="t-final">
   <div class="env">
-    <h2 id="t-final">Tu primer encargo:<br>tu propia marca.</h2>
-    <p>Rellena el taller con tus reglas, copia el encargo y pégalo en el chat. Lo difícil, el ojo, ya lo tienes. Lo demás se aprende en una tarde.</p>
-    <a class="boton" href="#taller">Ir al taller</a>
+    <h2 id="t-final">Tu primera conversación:<br>tu propia marca.</h2>
+    <p>Cuéntale quién eres y qué quieres provocar, como se lo contarías a alguien del oficio. Luego mira, opina y pide más. El ojo ya lo tienes.</p>
+    <a class="boton" href="#contar">Empezar a contarla</a>
   </div>
 </section>
 </main>
@@ -363,48 +348,27 @@ footer{padding:28px 0 40px;font-size:13px;color:var(--tinta2)}
 "use strict";
 const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-// ---------- galería ----------
 const OBRAS = [
  {id:"cordoba", n:"Córdoba Soluciona", s:"Reformas en Córdoba · web publicada", url:"https://cordobasoluciona.es/", c:["#B4482F","#3F7A4C","#FBFAF5"], letra:"Young Serif",
-  base:"El arco de herradura de la Mezquita, con sus dovelas rojas y blancas, hace de ventana en la portada. Lo más cordobés que hay.",
-  gesto:"«La partida»: cada dato se escribe como una línea de presupuesto, que es el idioma del sector.",
-  como:"Juan pidió una web para captar reformas en Córdoba. El resto salió de buscar qué es Córdoba y cómo habla un reformista."},
- {id:"berral", n:"Berral Joyeros", s:"Joyería con taller, Medina Azahara", url:"https://opspilotcontact-lgtm.github.io/berraljoyeros-maqueta/", c:["#F09494","#15120F","#F6EFE4"], letra:"Jost a 500",
-  base:"El solitario de su logo, una gema facetada de cuarzo rosa sobre un aro de oro, va de borde a borde. El fondo es el granito de su fachada, con su grano.",
-  gesto:"La vitrina: filete de latón y reflejo de cristal. La tienda tiene 1.697 fichas reales que se apartan por WhatsApp.",
-  como:"Dos parejas de letras descartadas por «tics de IA» hasta llegar al peso de sus letras corpóreas."},
- {id:"opspilot", n:"OpsPilot", s:"Nuestra propia web · «horizonte artificial»", url:"https://opspilotcontact-lgtm.github.io/opspilot-maqueta/", c:["#51CB8A","#0F1620","#EDECE8"], letra:"Bricolage Grotesque + B612 Mono",
-  base:"Los cortes del aro del logo forman una línea a −17,41°: un horizonte artificial, como el de una cabina. La portada es el logo a escala de página, cielo verde y suelo navy.",
-  gesto:"Cada sección es un instrumento de vuelo: avisos, plan de vuelo, instrumentos.",
-  como:"Se midió el ángulo del logo y de ahí salió todo. Juan solo quitó lo que sobraba: «la mirilla dentro del círculo me sobra»."},
- {id:"luque", n:"Luque Joyeros", s:"Joyería familiar, distribuidor Rolex", url:"https://opspilotcontact-lgtm.github.io/luquejoyeros-maqueta/", c:["#8C7A66","#3A3129","#F2EDE6"], letra:"Saira extendida",
-  base:"«La talla»: su monograma LJ se convierte en la tabla de una talla esmeralda, con el chaflán a 45° de su logo, y se talla al cargar.",
-  gesto:"Una bandeja de joyero con insertos de distinta forma sirve de índice del catálogo. La historia se cuenta como un collar anudado.",
-  como:"La letra sale del rótulo extendido de su logo. Antes hubo dos intentos con «fuentes típicas de IA»."},
+  tr:"Que reformar en Córdoba sea cosa de aquí, sin líos.", idea:"El arco de la Mezquita, con sus dovelas rojas y blancas, hace de ventana en la portada. Y todo se escribe como las líneas de un presupuesto, que es como habla el oficio."},
+ {id:"berral", n:"Berral Joyeros", s:"Joyería con taller, Medina Azahara", url:"https://opspilotcontact-lgtm.github.io/berraljoyeros-maqueta/", c:["#F09494","#15120F","#F6EFE4"], letra:"Jost",
+  tr:"La joyería de barrio de toda la vida, con taller y oficio.", idea:"El solitario de su logo, una gema de cuarzo rosa sobre un aro de oro, cruza la pantalla. El fondo es el granito de su fachada, con su grano, y la tienda son vitrinas con filete de latón."},
+ {id:"opspilot", n:"OpsPilot", s:"Nuestra propia web", url:"https://opspilotcontact-lgtm.github.io/opspilot-maqueta/", c:["#51CB8A","#0F1620","#EDECE8"], letra:"Bricolage Grotesque + B612 Mono",
+  tr:"Que alguien lleve los mandos de tu negocio.", idea:"Los cortes del aro del logo forman una línea a −17,41°, como el horizonte artificial de una cabina. La portada es el logo a escala de página, y cada sección es un instrumento de vuelo."},
+ {id:"luque", n:"Luque Joyeros", s:"Joyería familiar, distribuidor Rolex", url:"https://opspilotcontact-lgtm.github.io/luquejoyeros-maqueta/", c:["#8C7A66","#3A3129","#F2EDE6"], letra:"Saira",
+  tr:"Nada es impersonal ni se deja al azar.", idea:"Su monograma se talla como una esmeralda al cargar la página. El catálogo se recorre como una bandeja de joyero, y su historia, como un collar anudado perla a perla."},
  {id:"minimundo", n:"Minimundo", s:"Librería y puericultura, La Carlota", url:"https://opspilotcontact-lgtm.github.io/minimundo-maqueta/", c:["#E3A3A6","#659DC0","#234A78"], letra:"Lexend", video:true,
-  base:"Un mundo partido en dos mitades: el rosa de su fachada y el azul de su pared, medidos. Son sus dos puertas, la de los libros y la del bebé.",
-  gesto:"La página se ordena por centímetros, como un tallímetro. Lexend porque se diseñó para que lean los que empiezan.",
-  como:"Con la marca hecha, también el reel: una página animada y grabada fotograma a fotograma."},
+  tr:"Elegido de uno en uno por una madre del pueblo.", idea:"Un mundo partido en dos mitades, el rosa de su fachada y el azul de su pared: sus dos puertas, la de los libros y la del bebé. Con la marca hecha, también el reel."},
  {id:"rodriguez", n:"J.R. Rodríguez e Hijos", s:"Reformas familiares, Córdoba", url:"https://opspilotcontact-lgtm.github.io/rodriguezreformas-maqueta-b/", c:["#9CA67B","#2F3130","#F3F4EE"], letra:"Bodoni Moda",
-  base:"La hoja de proyecto: el plano de una vivienda en tinta sobre su salvia, con un cajetín que lleva su logo y su firma, que se escribe al cargar.",
-  gesto:"Habitación por habitación: cada servicio es una hoja con su estancia rayada en un plano pequeño.",
-  como:"La idea sale de lo que entrega un reformista serio antes de empezar: un plano firmado."},
+  tr:"Antes de tirar un tabique, ya sabes cómo va a quedar.", idea:"El plano de una vivienda dibujado en tinta sobre su verde salvia, con un cajetín donde su firma se escribe sola. Cada servicio es una habitación del plano."},
  {id:"digito", n:"Dígito Rotulación", s:"Taller de rótulos, La Carlota", url:"https://opspilotcontact-lgtm.github.io/digito-maqueta/", c:["#FEFE00","#323846","#EEF0F3"], letra:"Anybody",
-  base:"Su fachada como un solo objeto: la chapa grecada, la banda amarilla con su logo real y el titular en letras corpóreas donde su nave dice RÓTULOS.",
-  gesto:"El rótulo que se enciende. El cierre es el logo en silueta, como un rótulo apagado.",
-  como:"El color se midió en su chapa y su lona. El logo es el suyo, vectorizado, sin reescribir."},
+  tr:"Lo diseñamos, lo fabricamos y te lo montamos.", idea:"Su fachada convertida en página: la chapa gris, la banda amarilla con su logo y el titular en letras corpóreas. Al final, su logo en silueta, como un rótulo apagado."},
  {id:"worldfitness", n:"World Fitness Club", s:"Gimnasio y maquinaria, Puente Genil", url:"https://opspilotcontact-lgtm.github.io/worldfitness-maqueta-a/", c:["#D8231C","#141212","#ECEAE6"], letra:"Anybody",
-  base:"Su escudo real sostiene una barra de borde a borde que se carga de discos al entrar.",
-  gesto:"El disco como unidad: las zonas van en discos y «Monta tu sala» deja componer un gimnasio con su catálogo de 163 máquinas.",
-  como:"La herramienta propia era lo que les faltaba para vender maquinaria."},
+  tr:"Maquinaria que se prueba entrenando.", idea:"Su escudo sostiene una barra que se carga de discos al entrar. Las zonas van en discos y se puede montar un gimnasio entero con sus 163 máquinas."},
  {id:"anajurado", n:"Clínica Doctora Ana Jurado", s:"Medicina estética y nutrición, Córdoba", url:"https://opspilotcontact-lgtm.github.io/anajurado-maqueta/", c:["#59BFC7","#2C3E50","#FFFFFF"], letra:"Gloock",
-  base:"El doble aro de su monograma AJ, gigante, con la doctora dentro y el logo como sello.",
-  gesto:"«La hoja de consulta»: cada tratamiento se presenta como un motivo de consulta, en palabras de la paciente.",
-  como:"La web habla en primera persona, como habla ella en consulta."},
+  tr:"Medicina estética, sin que se note.", idea:"El doble aro de su monograma, gigante, con la doctora dentro. Cada tratamiento se cuenta como un motivo de consulta, en palabras de la paciente."},
  {id:"siluetas", n:"Siluetas de Mujer", s:"Entrenadora personal, Córdoba · publicada", url:"https://siluetasdemujer.es/", c:["#D93A7A","#16A39A","#F3EBE0"], letra:"Figtree",
-  base:"«El camino»: los dos trazos del logo corren en paralelo y ensartan los tres pasos en todas las páginas.",
-  gesto:"La silueta del logo hace de mapa: tocas una zona y te lleva a su ayuda.",
-  como:"Siete ilustraciones generadas con un mismo prompt de estilo y el mismo tratamiento, para que parezcan de una sola mano."}
+  tr:"Tu silueta, por fuera y por dentro.", idea:"Los dos trazos del logo corren en paralelo por toda la web, como un camino. Las ilustraciones salieron de un mismo encargo de estilo, para que parezcan de una sola mano."}
 ];
 const cont = document.getElementById("obras");
 OBRAS.forEach((o,i) => {
@@ -412,173 +376,107 @@ OBRAS.forEach((o,i) => {
   const img = `<a class="lienzo" href="${o.url}" target="_blank" rel="noopener" aria-label="Abrir la web de ${o.n}"><img src="img/${o.id}-h.webp" width="1440" height="900" alt="Portada de la web de ${o.n}" loading="lazy"><span class="ver">abrir ↗</span></a>`;
   const vis = o.video ? `<div class="doble">${img}<div class="movil"><video src="media/minimundo.mp4" muted loop playsinline preload="metadata" controls aria-label="Reel vertical de Minimundo"></video></div></div>` : img;
   art.innerHTML = vis + `<div class="ficha"><span class="num">${String(i+1).padStart(2,"0")} / ${OBRAS.length}</span><h3>${o.n}</h3><p class="sector">${o.s}</p>
-    <dl><div><dt>En qué se basa</dt><dd>${o.base}</dd></div><div><dt>El gesto</dt><dd>${o.gesto}</dd></div><div><dt>Cómo salió</dt><dd>${o.como}</dd></div></dl>
+    <p class="transmite">«${o.tr}»</p><p class="idea">${o.idea}</p>
     <div class="muestras">${o.c.map(c=>`<i style="background:${c}" title="${c}"></i>`).join("")}<span>${o.letra}</span></div></div>`;
   cont.append(art);
 });
-// muro de portada (duplicado para el bucle)
-const muro = document.getElementById("muro");
-[...OBRAS, ...OBRAS].forEach(o => { const im=document.createElement("img"); im.src=`img/${o.id}-h.webp`; im.alt=""; im.width=400; im.height=250; muro.append(im); });
+const mos = document.getElementById("mosaico");
+[...OBRAS, ...OBRAS.slice(0,5)].forEach(o => { const im=document.createElement("img"); im.src=`img/${o.id}-h.webp`; im.alt=""; im.width=480; im.height=300; mos.append(im); });
 
-// ---------- demos ----------
+const PARES = [
+ {id:"berral", n:"Berral Joyeros", antes:"Una joyería genérica: gema plana, letras de catálogo y la cursiva de siempre.", mirada:"«Tiene tics de IA; esto podría ser cualquier joyería.»", despues:"La gema de su logo, tallada y con brillo, sobre el granito de su fachada. Letra con el peso de sus letras corpóreas."},
+ {id:"luque", n:"Luque Joyeros", antes:"Elegante y correcta, con las letras que se ponen siempre en el lujo.", mirada:"«Son fuentes típicas de IA.»", despues:"La letra sale del rótulo extendido de su propio logo. Ya no se parece a otra joyería: se parece a la suya."},
+ {id:"rodriguez", n:"J.R. Rodríguez e Hijos", antes:"Sus iniciales gigantes con una foto dentro: vistoso, pero visto.", mirada:"Faltaba algo que solo diría un reformista serio.", despues:"El plano firmado que entrega antes de empezar. Ahora la página demuestra oficio, no lo promete."}
+];
+const pc = document.getElementById("pares");
+PARES.forEach(p => {
+  const d = document.createElement("div"); d.className="par";
+  d.innerHTML = `<div class="comparar" style="--x:55%"><img src="img/${p.id}-h.webp" alt="Versión final de ${p.n}" loading="lazy"><img class="antes" src="img/${p.id}-v1.webp" alt="Primera versión de ${p.n}" loading="lazy"><span class="corte" aria-hidden="true"></span><span class="et a">antes</span><span class="et b">después</span><input type="range" min="0" max="100" value="55" aria-label="Comparar la primera versión y la final de ${p.n}"></div>
+  <div class="texto"><h3>${p.n}</h3><div class="linea"><b>Antes</b><span>${p.antes}</span></div><div class="linea mirada"><b>La mirada</b><span>${p.mirada}</span></div><div class="linea"><b>Después</b><span>${p.despues}</span></div></div>`;
+  const r = d.querySelector("input"), c = d.querySelector(".comparar");
+  r.addEventListener("input", () => c.style.setProperty("--x", r.value+"%"));
+  pc.append(d);
+});
+
+const ATLAS = [
+ ["suizo","Suizo","Orden, retícula, verdad.",'<i class="g"></i><span class="t">Ver<br>dad.</span><i class="r"></i><span class="p">ZÜRICH 1957<br>RETÍCULA 6 COL</span>'],
+ ["bauhaus","Bauhaus","Formas puras, color primario.",'<i class="c"></i><i class="s"></i><i class="tr"></i><span class="t">forma</span>'],
+ ["constr","Constructivista","Fuerza, diagonal, proclama.",'<i class="c"></i><i class="banda"></i><span class="t">ADELANTE ADELANTE</span>'],
+ ["riso","Riso y fanzine","Hecho a mano, cercano, imperfecto.",'<span class="t1">HAZ<br>LO</span><span class="t2">HAZ<br>LO</span><span class="p">tirada de 50</span>'],
+ ["brutal","Brutalista","Crudo, honesto, sin maquillaje.",'<span class="t">ESTO ES UNA WEB. NO PIDE PERDÓN.</span><span class="a">enlace sin estilo</span><i class="b"></i>'],
+ ["memphis","Memphis","Juego, exceso, humor.",'<i class="d"></i><i class="z"></i><i class="c"></i><i class="s"></i>'],
+ ["nouveau","Art Nouveau","Ornamento, naturaleza, oficio.",'<i class="arco"></i><i class="arco2"></i><span class="t">Florencia</span><span class="p">CASA FUNDADA EN 1904</span>'],
+ ["ma","Ma japonés","Silencio, vacío, pausa.",'<i class="sol"></i><span class="t">el vacío también dice</span><i class="l"></i>'],
+ ["op","Op art","Vértigo, ilusión, movimiento.",'<i class="c"></i>'],
+ ["collage","Collage dadá","Ironía, recorte, choque.",'<i class="a"></i><i class="b"></i><i class="c"></i>'],
+ ["lujo","Lujo editorial","Contención, precio, silencio.",'<span class="t">Maison</span><i class="l"></i><span class="p">PARÍS · CÓRDOBA</span>'],
+ ["indus","Industrial","Señal, trabajo, utilidad.",'<span class="t">Zona<br>de carga</span><span class="p">CARGA MÁX.<br>1.200 KG</span><span class="f">→</span><i class="r"></i>'],
+ ["botan","Botánico","Calma, origen, cuidado.",'<i class="h1"></i><i class="h2"></i><i class="h3"></i><span class="t">de la tierra</span>'],
+ ["digital","Futuro digital","Precisión, frío, señal.",'<i class="g"></i><span class="t">SEÑAL ▲ 98,4<br>ÓRBITA 3</span><i class="o"></i>']
+];
+const elegidos = new Set();
+const at = document.getElementById("atlas");
+ATLAS.forEach(([k,n,d,html]) => {
+  const b = document.createElement("button"); b.type="button"; b.className="tile"; b.setAttribute("aria-pressed","false");
+  b.innerHTML = `<span class="lam l-${k}" aria-hidden="true">${html}</span><span><b>${n}</b><small>${d}</small></span>`;
+  b.addEventListener("click", () => { if(elegidos.has(n)) elegidos.delete(n); else elegidos.add(n); b.setAttribute("aria-pressed", elegidos.has(n)); sincronizaRefs(); });
+  at.append(b);
+});
+
 const zr = document.getElementById("z-respira"), resp = document.getElementById("respira");
 zr.addEventListener("pointermove", e => { const r=zr.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width, y=(e.clientY-r.top)/r.height;
   resp.style.fontVariationSettings = `"wdth" ${Math.round(62+x*63)},"wght" ${Math.round(100+(1-y)*800)}`; });
 zr.addEventListener("pointerleave", () => resp.style.fontVariationSettings = `"wdth" 100,"wght" 400`);
-
 function lienzo(id){ const c=document.getElementById(id); const ctx=c.getContext("2d"); function size(){ const r=c.getBoundingClientRect(); const d=devicePixelRatio||1; c.width=r.width*d; c.height=r.height*d; ctx.setTransform(d,0,0,d,0,0); return [r.width,r.height]; } return {c,ctx,size}; }
-// imprenta en dos tintas
 const riso = lienzo("c-riso"); let semRiso = Math.random()*10;
-function pintaRiso(){ const [w,h]=riso.size(); const x=riso.ctx; x.fillStyle="#F4F1EA"; x.fillRect(0,0,w,h); x.globalCompositeOperation="multiply";
-  const paso=9; const tintas=[["#2C4BD8",0,0],["#F0453A",3,2]];
-  tintas.forEach(([col,dx,dy],k)=>{ x.fillStyle=col; const cx=w*(.42+k*.12), cy=h*(.5-k*.04), R=Math.min(w,h)*(.36-k*.04);
-    for(let yy=0;yy<h;yy+=paso) for(let xx=0;xx<w;xx+=paso){ const d=Math.hypot(xx-cx,yy-cy)/R; const v=Math.max(0,1-d)*(.6+.4*Math.sin(xx*.02+semRiso+k)*Math.cos(yy*.025-semRiso));
+function pintaRiso(){ const [w,h]=riso.size(); const x=riso.ctx; x.fillStyle="#F4F1EA"; x.fillRect(0,0,w,h); x.globalCompositeOperation="multiply"; const paso=9;
+  [["#2C4BD8",0,0],["#F0453A",3,2]].forEach(([col,dx,dy],k)=>{ x.fillStyle=col; const cx=w*(.42+k*.12), cy=h*(.5-k*.04), R=Math.min(w,h)*(.36-k*.04);
+    for(let yy=0;yy<h;yy+=paso) for(let xx=0;xx<w;xx+=paso){ const dd=Math.hypot(xx-cx,yy-cy)/R; const v=Math.max(0,1-dd)*(.6+.4*Math.sin(xx*.02+semRiso+k)*Math.cos(yy*.025-semRiso));
       if(v>0.02){ x.beginPath(); x.arc(xx+dx,yy+dy,v*paso*.58,0,Math.PI*2); x.fill(); } } });
   x.globalCompositeOperation="source-over"; }
 riso.c.addEventListener("click", ()=>{ semRiso=Math.random()*10; pintaRiso(); });
-// campo de flujo
 const flujo = lienzo("c-flujo"); let semF = Math.random()*100;
 function pintaFlujo(){ const [w,h]=flujo.size(); const x=flujo.ctx; x.fillStyle="#F4F1EA"; x.fillRect(0,0,w,h); x.strokeStyle="rgba(17,17,17,.55)"; x.lineWidth=.7;
-  const ang=(px,py)=>Math.sin(px*.011+semF)*2.2+Math.cos(py*.013-semF*.7)*1.8;
-  let rnd=semF*9301; const azar=()=>{ rnd=(rnd*9301+49297)%233280; return rnd/233280; };
-  for(let i=0;i<900;i++){ let px=azar()*w, py=azar()*h; x.beginPath(); x.moveTo(px,py);
-    for(let s=0;s<40;s++){ const a=ang(px,py); px+=Math.cos(a)*2.4; py+=Math.sin(a)*2.4; x.lineTo(px,py); } x.stroke(); }
+  const ang=(px,py)=>Math.sin(px*.011+semF)*2.2+Math.cos(py*.013-semF*.7)*1.8; let rnd=Math.floor(semF*9301)%233280; const azar=()=>{ rnd=(rnd*9301+49297)%233280; return rnd/233280; };
+  for(let i=0;i<900;i++){ let px=azar()*w, py=azar()*h; x.beginPath(); x.moveTo(px,py); for(let s=0;s<40;s++){ const a=ang(px,py); px+=Math.cos(a)*2.4; py+=Math.sin(a)*2.4; x.lineTo(px,py); } x.stroke(); }
   x.strokeStyle="#002FA7"; x.lineWidth=2; x.beginPath(); let px=w*.1, py=h*.5; x.moveTo(px,py); for(let s=0;s<220;s++){ const a=ang(px,py); px+=Math.cos(a)*2.4; py+=Math.sin(a)*2.4; x.lineTo(px,py);} x.stroke(); }
 flujo.c.addEventListener("click", ()=>{ semF=Math.random()*100; pintaFlujo(); });
-// recortes
 const rec = document.getElementById("s-recortes"); const COL=["#002FA7","#E5322D","#F2B705","#111111","#2E8B57"];
 function recorta(){ let s=`<rect width="400" height="300" fill="#F4F1EA"/>`;
   for(let i=0;i<7;i++){ const cx=40+Math.random()*320, cy=40+Math.random()*220, r=24+Math.random()*60, n=6+Math.floor(Math.random()*5); let d="";
-    for(let k=0;k<n;k++){ const a=k/n*Math.PI*2, rr=r*(.55+Math.random()*.6); const px=cx+Math.cos(a)*rr, py=cy+Math.sin(a)*rr; d+=(k?"L":"M")+px.toFixed(1)+" "+py.toFixed(1)+" "; }
+    for(let k=0;k<n;k++){ const a=k/n*Math.PI*2, rr=r*(.55+Math.random()*.6); d+=(k?"L":"M")+(cx+Math.cos(a)*rr).toFixed(1)+" "+(cy+Math.sin(a)*rr).toFixed(1)+" "; }
     s+=`<path d="${d}Z" fill="${COL[i%COL.length]}" transform="rotate(${(Math.random()*40-20).toFixed(1)} ${cx.toFixed(0)} ${cy.toFixed(0)})"/>`; }
   rec.innerHTML=s; }
 rec.addEventListener("click", recorta);
-// trazo
 const tr=document.getElementById("trazo"); const L=tr.getTotalLength(); tr.style.strokeDasharray=L; tr.style.strokeDashoffset=RM?0:L; tr.style.transition="stroke-dashoffset 1.6s cubic-bezier(.2,.7,.1,1)";
 const zt=tr.closest(".zona"); zt.addEventListener("pointerenter",()=>{ tr.style.strokeDashoffset=0; }); zt.addEventListener("pointerleave",()=>{ if(!RM) tr.style.strokeDashoffset=L; });
-if("IntersectionObserver" in window){ new IntersectionObserver((es,ob)=>{ es.forEach(e=>{ if(e.isIntersecting){ tr.style.strokeDashoffset=0; setTimeout(()=>{ if(!zt.matches(":hover")&&!RM) tr.style.strokeDashoffset=L; },2600); } }); },{threshold:.6}).observe(zt); }
+if("IntersectionObserver" in window){ new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ tr.style.strokeDashoffset=0; setTimeout(()=>{ if(!zt.matches(":hover")&&!RM) tr.style.strokeDashoffset=L; },2600); } }); },{threshold:.6}).observe(zt); }
 function pintaTodo(){ pintaRiso(); pintaFlujo(); }
 recorta(); requestAnimationFrame(pintaTodo); addEventListener("resize", ()=>{ clearTimeout(window.__t); window.__t=setTimeout(pintaTodo,200); });
-// vídeos: solo se reproducen a la vista
-document.querySelectorAll("video").forEach(v=>{ if(RM){ v.removeAttribute("autoplay"); v.pause(); return; } if("IntersectionObserver" in window) new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting) v.play().catch(()=>{}); else v.pause(); }),{threshold:.3}).observe(v); });
+document.querySelectorAll("video").forEach(v=>{ if(RM) return; if("IntersectionObserver" in window) new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting) v.play().catch(()=>{}); else v.pause(); }),{threshold:.3}).observe(v); });
 
-// ---------- taller ----------
-const OP = {
-  entregable:["Identidad completa","Web","Portada de web","Etiqueta o packaging","Cartel","Carrusel de Instagram","Reel vertical","Logotipo animado"],
-  sensacion:["serena","rotunda","artesanal","lujosa","lúdica","técnica","editorial","cruda","cálida","misteriosa"],
-  letra:[["Serif de contraste","Bodoni Moda","'Bodoni Moda',serif",700],["Serif cálida","Fraunces","'Fraunces',serif",600],["Grotesca neutra","Hanken Grotesk","'Hanken Grotesk',sans-serif",700],["Grotesca extendida","Archivo","'Archivo',sans-serif",800,"wdth 125"],["Condensada de cartel","Big Shoulders","'Big Shoulders Display',sans-serif",900],["Mono técnica","JetBrains Mono","'JetBrains Mono',monospace",600],["Rotulada a mano","Caveat","'Caveat',cursive",700],["Display con carácter","Bricolage","'Bricolage Grotesque',sans-serif",800]],
-  paleta:[["Medida del cliente",["#C9C2B6","#7A6E62","#2B2622"],"medir en su fachada, su logo o su producto"],["Klein y papel",["#002FA7","#F4F1EA","#111111"],null],["Tierra y cal",["#B4482F","#E8DCC4","#3B2A20"],null],["Noche y neón",["#0E0F1A","#7CF2C9","#F2F2F2"],null],["Riso",["#2C4BD8","#F0453A","#F7F3E8"],null],["Pastel serio",["#E3A3A6","#659DC0","#1F2340"],null],["Mono absoluto",["#FFFFFF","#111111","#8A8A85"],null],["Oliva y hueso",["#7D8C5A","#F2F4EF","#2F3130"],null],["Rojo cartel",["#D8231C","#ECEAE6","#141212"],null]],
-  materia:[["Plano a sangre","plana"],["Papel con grano","grano"],["Trama de imprenta","trama"],["Pautado de cuaderno","pautado"],["Retícula de plano","reticula"],["Oscuro de noche","noche"]],
-  imagen:["Fotos reales del cliente, sin filtro","Fotos reales en duotono","Collage con sus fotos","Ilustración en serie, un solo estilo","Sin fotos: objetos dibujados","Tipografía como única imagen"],
-  composicion:["Asimétrica editorial","Retícula suiza","Un objeto monumental","Collage","Relato al bajar","Póster a pantalla completa"],
-  movimiento:["Ninguno","Un gesto al cargar","Al hacer scroll","Responde al cursor","Ambiente lento"],
-  referencias:["Bauhaus","Suiza / Müller-Brockmann","Constructivismo ruso","Saul Bass","Recortes de Matisse","Memphis","Fanzine / riso","Brutalismo web","Japón / ma","Op art","Art Nouveau","Pop"],
-  prohibido:["degradados morados","esferas con brillo","todo centrado","Inter o Roboto","emojis como iconos","crema, serif y terracota","sombras en todo","fotos de banco","iconos genéricos","bordes redondeados en todo"]
-};
-const DEF = {entregable:["Identidad completa"], sensacion:["artesanal","serena"], letra:"Grotesca extendida", paleta:"Medida del cliente", materia:"Papel con grano", imagen:["Fotos reales en duotono"], composicion:["Un objeto monumental"], movimiento:["Un gesto al cargar"], referencias:["Saul Bass"], prohibido:["degradados morados","todo centrado","fotos de banco"]};
-let E = JSON.parse(JSON.stringify(DEF));
-try{ const g=JSON.parse(localStorage.getItem("criterio-estilo")||"null"); if(g){ E=Object.assign(E,g.E||{}); if(g.reglas) document.getElementById("o-reglas").value=g.reglas; } }catch(e){}
-
-function chips(g){ const box=document.querySelector(`[data-g="${g}"]`); const uno=box.dataset.uno; box.replaceChildren();
-  OP[g].forEach(v=>{ const b=document.createElement("button"); b.type="button"; b.textContent=v; b.setAttribute("aria-pressed", (E[g]||[]).includes(v));
-    b.addEventListener("click",()=>{ let a=E[g]||[]; if(uno) a=[v]; else a=a.includes(v)?a.filter(x=>x!==v):[...a,v]; E[g]=a; chips(g); render(); }); box.append(b); }); }
-function letras(){ const box=document.querySelector('[data-g="letra"]'); box.replaceChildren();
-  OP.letra.forEach(([n,fam,css,w,ex])=>{ const b=document.createElement("button"); b.type="button"; b.setAttribute("aria-pressed",E.letra===n);
-    b.innerHTML=`<span class="aa" style="font-family:${css};font-weight:${w};${ex?`font-variation-settings:'wdth' 125`:""}">Aa</span><small>${n}</small>`;
-    b.addEventListener("click",()=>{ E.letra=n; letras(); render(); }); box.append(b); }); }
-function paletas(){ const box=document.querySelector('[data-g="paleta"]'); box.replaceChildren();
-  OP.paleta.forEach(([n,c])=>{ const b=document.createElement("button"); b.type="button"; b.setAttribute("aria-pressed",E.paleta===n);
-    b.innerHTML=`<span class="tiras">${c.map(x=>`<i style="background:${x}"></i>`).join("")}</span><small>${n}</small>`;
-    b.addEventListener("click",()=>{ E.paleta=n; paletas(); render(); }); box.append(b); }); }
-function textura(tipo, c){
-  if(tipo==="grano") return `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .35 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")`;
-  if(tipo==="trama") return `radial-gradient(${c} 1.2px, transparent 1.5px) 0 0/9px 9px`;
-  if(tipo==="pautado") return `repeating-linear-gradient(transparent 0 27px, ${c} 27px 28px)`;
-  if(tipo==="reticula") return `linear-gradient(${c} 1px,transparent 1px) 0 0/32px 32px, linear-gradient(90deg,${c} 1px,transparent 1px) 0 0/32px 32px`;
-  return "none"; }
-function materias(){ const box=document.querySelector('[data-g="materia"]'); box.replaceChildren();
-  OP.materia.forEach(([n,t])=>{ const b=document.createElement("button"); b.type="button"; b.setAttribute("aria-pressed",E.materia===n);
-    const fondo = t==="noche" ? "#15161C" : "#EFEAE0";
-    b.innerHTML=`<span class="m" style="background:${textura(t,'rgba(0,0,0,.18)')==="none"?"":textura(t,'rgba(0,0,0,.18)')+","}${fondo}"></span><small>${n}</small>`;
-    b.addEventListener("click",()=>{ E.materia=n; materias(); render(); }); box.append(b); }); }
-
-function render(){
-  const cliente = document.getElementById("o-cliente").value.trim() || "Tu cliente";
-  const L = OP.letra.find(x=>x[0]===E.letra) || OP.letra[0];
-  const P = OP.paleta.find(x=>x[0]===E.paleta) || OP.paleta[0];
-  const M = OP.materia.find(x=>x[0]===E.materia) || OP.materia[0];
-  let [c1,c2,c3] = P[1]; let fondo=c2, tinta=c3, acento=c1;
-  if(M[1]==="noche"){ fondo="#121318"; tinta="#F2F2EE"; }
-  const lam=document.getElementById("lamina"); lam.style.background=fondo; lam.style.color=tinta;
-  const tex=document.getElementById("l-tex"); const t=textura(M[1], M[1]==="noche"?"rgba(255,255,255,.12)":"rgba(0,0,0,.16)");
-  tex.style.background = t==="none" ? "none" : t; tex.style.opacity = M[1]==="grano" ? ".55" : "1"; tex.style.mixBlendMode = M[1]==="grano" ? "multiply" : "normal";
-  const tit=document.getElementById("l-titular"); tit.textContent=cliente; tit.style.fontFamily=L[2]; tit.style.fontWeight=L[3]; tit.style.fontVariationSettings = L[4] ? "'wdth' 125" : "normal";
-  const comp=(E.composicion||[])[0]||"";
-  tit.style.textAlign = comp==="Póster a pantalla completa" ? "left" : "left";
-  tit.style.fontSize = comp==="Póster a pantalla completa" ? "clamp(56px,8vw,112px)" : comp==="Retícula suiza" ? "clamp(36px,4.6vw,60px)" : "";
-  const f=document.getElementById("l-forma"); f.style.cssText="";
-  if(comp==="Un objeto monumental"){ f.style.cssText=`width:78%;aspect-ratio:1;border-radius:50% 50% 0 0;background:${acento};right:-14%;top:16%;opacity:.95`; }
-  else if(comp==="Retícula suiza"){ f.style.cssText=`left:0;right:0;top:44%;height:14px;background:${acento}`; }
-  else if(comp==="Collage"){ f.style.cssText=`width:44%;aspect-ratio:3/4;background:${acento};right:8%;top:22%;transform:rotate(-7deg);box-shadow:-60px 50px 0 -10px ${c3===tinta?c1:c3}`; }
-  else if(comp==="Asimétrica editorial"){ f.style.cssText=`width:34%;top:0;bottom:0;right:0;background:${acento}`; }
-  else if(comp==="Relato al bajar"){ f.style.cssText=`left:8%;top:14%;bottom:14%;width:2px;background:${acento}`; }
-  else if(comp==="Póster a pantalla completa"){ f.style.cssText=`inset:auto 0 0 0;height:38%;background:${acento}`; }
-  document.getElementById("l-sello").style.background=acento;
-  document.getElementById("l-entregable").textContent=(E.entregable||[])[0]||"";
-  document.getElementById("l-sens").textContent=(E.sensacion||[]).join(" · ");
-  document.getElementById("l-ref").textContent=(E.referencias||[]).join(" · ")||"—";
-  lam.classList.remove("anima"); void lam.offsetWidth; if((E.movimiento||[])[0] && E.movimiento[0]!=="Ninguno") lam.classList.add("anima");
-  document.getElementById("prompt").textContent = encargo(cliente, L, P, M);
+const CAMPOS = [["p1","Qué es"],["p2","Qué tiene que sentir quien la vea"],["p3","Lo que la hace inconfundible"],["p4","Material real que hay"],["p5","Lo que no quiere parecer nunca"],["p6","Lo que imagino"],["p7","Referencias"]];
+try{ const g=JSON.parse(localStorage.getItem("criterio-brief")||"null"); if(g) CAMPOS.forEach(([id])=>{ if(g[id]) document.getElementById(id).value=g[id]; }); }catch(e){}
+function guarda(){ try{ const o={}; CAMPOS.forEach(([id])=>o[id]=document.getElementById(id).value); localStorage.setItem("criterio-brief", JSON.stringify(o)); }catch(e){} }
+function sincronizaRefs(){
+  const t = document.getElementById("p7"); const propio = t.value.split("\n").filter(l => !l.startsWith("Del atlas: ")).join("\n").trim();
+  t.value = (elegidos.size ? "Del atlas: " + [...elegidos].join(", ") + (propio?"\n":"") : "") + propio;
+  mensaje(); guarda();
 }
-function lista(a){ return (a&&a.length) ? a.join(", ") : "a tu criterio"; }
-function encargo(cliente, L, P, M){
-  const reglas = document.getElementById("o-reglas").value.trim();
-  const pal = P[2] ? "la paleta se MIDE en material real del cliente (su fachada, su logo, su producto); nada inventado" : `${P[0]} (${P[1].join(", ")}), ajustada si el material del cliente pide otra cosa`;
-  return `Actúa como director de arte senior. Yo decido; tú propones, ejecutas y me enseñas.
-
-ENCARGO
-${lista(E.entregable)} para: ${cliente}.
-Sensación: ${lista(E.sensacion)}.
-
-ANTES DE DISEÑAR
-1. Pídeme el material real que falte: fotos, logo, frases del cliente, lo que venden.
-2. Escribe las 5 decisiones, cada una sacada de algo real del cliente:
-   FIRMA (un objeto suyo a tamaño monumental), GESTO (su unidad de trabajo convertida en estructura), VOZ (sus palabras), COLOR (medido) y MOVIMIENTO (su oficio, animado una vez).
-3. Dame 3 direcciones distintas en una línea cada una y espera a que elija.
-
-DIRECCIÓN VISUAL
-- Letra: ${L[0].toLowerCase()} (por ejemplo ${L[1]}). Una sola familia salvo que yo diga otra cosa.
-- Paleta: ${pal}.
-- Materia y fondo: ${M[0].toLowerCase()}.
-- Imagen: ${lista(E.imagen).toLowerCase()}.
-- Composición: ${lista(E.composicion).toLowerCase()}.
-- Movimiento: ${lista(E.movimiento).toLowerCase()}. Respeta el movimiento reducido.
-- Referencias: ${lista(E.referencias)}. Como espíritu, no como copia.
-
-PROHIBIDO
-${(E.prohibido&&E.prohibido.length)?E.prohibido.map(x=>"- "+x).join("\n"):"- nada en particular"}
-- Cualquier cosa que parezca una plantilla o «hecha por IA».
-
-MIS REGLAS
-${reglas || "- (escribe aquí tus normas)"}
-
-AL ENTREGAR
-Enséñame el resultado, dime en dos líneas en qué te has basado para cada elemento importante y qué cambiarías tú. Si algo no te convence, dímelo antes de que yo lo vea.`;
+function mensaje(){
+  const partes = CAMPOS.map(([id,t])=>[t, document.getElementById(id).value.trim()]).filter(x=>x[1]);
+  const m = document.getElementById("mensaje");
+  if(!partes.length){ m.textContent = "Aquí se va escribiendo tu mensaje mientras contestas.\n\nNo hace falta rellenarlo todo, ni escribir bonito. Escribe como hablas."; return; }
+  m.textContent = "Quiero crear una marca y llevarla lejos. Te la cuento:\n\n" + partes.map(([t,v])=>t+":\n"+v).join("\n\n") +
+    "\n\nAntes de hacer nada, hazme las preguntas que necesites. Después enséñame varios caminos muy distintos entre sí, incluido alguno que yo no habría imaginado, y dime en qué te basas para cada uno. Yo elijo y seguimos.";
 }
-["entregable","sensacion","imagen","composicion","movimiento","referencias","prohibido"].forEach(chips); letras(); paletas(); materias();
-document.getElementById("o-cliente").addEventListener("input", render);
-document.getElementById("o-reglas").addEventListener("input", render);
-const aviso=document.getElementById("aviso"); const avisoBase=aviso.textContent;
-function avisa(t){ aviso.textContent=t; setTimeout(()=>aviso.textContent=avisoBase,2200); }
-document.getElementById("b-copiar").addEventListener("click",()=>{ const t=document.getElementById("prompt").textContent;
-  try{ navigator.clipboard.writeText(t).then(()=>avisa("Copiado. Pégalo en el chat."),()=>selecciona()); }catch(e){ selecciona(); } });
-function selecciona(){ const r=document.createRange(); r.selectNodeContents(document.getElementById("prompt")); const s=getSelection(); s.removeAllRanges(); s.addRange(r); avisa("Seleccionado: cópialo con Ctrl+C."); }
-document.getElementById("b-guardar").addEventListener("click",()=>{ try{ localStorage.setItem("criterio-estilo", JSON.stringify({E, reglas:document.getElementById("o-reglas").value})); avisa("Guardado. Al volver, estará como lo dejaste."); }catch(e){ avisa("Este navegador no deja guardar."); } });
-document.getElementById("b-azar").addEventListener("click",()=>{ const p=a=>a[Math.floor(Math.random()*a.length)];
-  E.letra=p(OP.letra)[0]; E.paleta=p(OP.paleta)[0]; E.materia=p(OP.materia)[0]; E.imagen=[p(OP.imagen)]; E.composicion=[p(OP.composicion)]; E.movimiento=[p(OP.movimiento)];
-  E.sensacion=[p(OP.sensacion),p(OP.sensacion)].filter((v,i,a)=>a.indexOf(v)===i); E.referencias=[p(OP.referencias)];
-  ["sensacion","imagen","composicion","movimiento","referencias"].forEach(chips); letras(); paletas(); materias(); render(); });
-render();
+CAMPOS.forEach(([id])=>document.getElementById(id).addEventListener("input",()=>{ mensaje(); guarda(); }));
+const aviso=document.getElementById("aviso"), avisoBase=aviso.textContent;
+function avisa(t){ aviso.textContent=t; setTimeout(()=>aviso.textContent=avisoBase,2400); }
+document.getElementById("b-copiar").addEventListener("click",()=>{ const t=document.getElementById("mensaje").textContent;
+  try{ navigator.clipboard.writeText(t).then(()=>avisa("Copiado. Pégalo en el chat."),selecciona); }catch(e){ selecciona(); } });
+function selecciona(){ const r=document.createRange(); r.selectNodeContents(document.getElementById("mensaje")); const s=getSelection(); s.removeAllRanges(); s.addRange(r); avisa("Seleccionado: cópialo con Ctrl+C."); }
+mensaje();
 })();
 </script>
 </body>
